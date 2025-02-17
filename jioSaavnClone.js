@@ -51,6 +51,6 @@ async function searchSongs() {
     });
 }
 
-document.getElementById("search").addEventListener("click", () => {
+document.getElementById("searchButton").addEventListener("click", () => {
     searchSongs();
 });
