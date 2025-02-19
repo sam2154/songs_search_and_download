@@ -72,6 +72,7 @@ body {
     transition: 0.3s;
     width: 45px;
     height: 45px;
+    display: none;
 }
 
 #searchButton:hover {
@@ -114,6 +115,7 @@ body {
     transition: 0.3s;
     width: 45px;
     height: 45px;
+    display: none;
 }
 
 
