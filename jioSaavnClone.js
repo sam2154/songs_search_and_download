@@ -100,15 +100,18 @@ if (!SpeechRecognition) {
     button.addEventListener("click", () => {
         if (button.classList.contains("listening")) {
             recognition.stop();
+            button.style.backgroundColor = "#10a37f"; // ✅ Reset color when stopped
             button.classList.remove("listening");
         } else {
             recognition.start();
-            document.getElementById("mic-button").style.backgroundColor = "red";
+            button.style.backgroundColor = "red"; // 🔴 Indicate listening mode
             button.classList.add("listening");
         }
     });
 
+    // ✅ Ensure color resets when recognition stops automatically
     recognition.onresult = (event) => {
+        button.style.backgroundColor = "#10a37f"; // ✅ Reset when stopped
         textOutput.value = event.results[0][0].transcript;
         searchSongs(); // ✅ Auto-search after voice input
     };
