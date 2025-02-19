@@ -63,7 +63,14 @@ async function searchSongs() {
         songsContainer.appendChild(songDiv);
     });
 }
-
+// Trigger button click when Enter key is pressed
+document.getElementById("searchInput").addEventListener("keydown", (event) =>{
+    if (event.key === "Enter") { // Check if Enter key is pressed
+        event.preventDefault(); // Prevent default behavior (like new line in textarea)
+        document.getElementById("searchButton").click(); // Trigger the button click
+    }
+});
+//Normal Function Call when ckeck the button mannually
 document.getElementById("searchButton").addEventListener("click", () => {
     searchSongs();
 });
