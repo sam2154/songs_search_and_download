@@ -63,6 +63,13 @@ async function searchSongs() {
         songsContainer.appendChild(songDiv);
     });
 }
+//Normal Function Call when ckeck the button mannually
+document.getElementById("searchButton").addEventListener("click", () => {
+    searchSongs();
+});
+
+
+///-----------------------------Added for If User Press KeyBoard Enter--mobile--iPhone--------START--- 
 // Trigger button click when Enter key is pressed
 document.getElementById("searchInput").addEventListener("keydown", (event) =>{
     if (event.key === "Enter") { // Check if Enter key is pressed
@@ -70,13 +77,20 @@ document.getElementById("searchInput").addEventListener("keydown", (event) =>{
         document.getElementById("searchButton").click(); // Trigger the button click
     }
 });
-//Normal Function Call when ckeck the button mannually
-document.getElementById("searchButton").addEventListener("click", () => {
-    searchSongs();
+
+// Detect "Go", "Done", or "Enter" on mobile keyboards
+searchInput.addEventListener("input", function(event) {
+    if (event.inputType === "insertLineBreak") {
+        event.preventDefault();
+        searchButton.click();
+    }
 });
 
-
-
+// Alternative: Listen to 'change' event (Works on iPhones)
+searchInput.addEventListener("change", function() {
+    searchButton.click();
+});
+///-----------------------------Added for If User Press KeyBoard Enter--mobile--iPhone--------START--- 
 
 
 ///Add mic-Button--------------------------------------------------------------------------------------------------------------
